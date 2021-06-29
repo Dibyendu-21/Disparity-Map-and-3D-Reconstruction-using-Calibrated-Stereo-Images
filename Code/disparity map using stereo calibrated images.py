@@ -22,7 +22,6 @@ dir_compare_frame_pairs = rootDir+'\Output\Compare_rectified_frame_pairs'
 dir_rectified_L = rootDir+'\Output\Rectified_frames\L'
 dir_rectified_R = rootDir+'\Output\Rectified_frames\R'
 dir_disparity = rootDir+'\Output\Rectified_frames\Disparity'
-dir_stereo_parameter = rootDir+'\Parameters'
 
 
 #Setting frame resolution.
@@ -197,7 +196,7 @@ StereoParams = {'rotationMatrixL':rotationMatrixL, 'rotationMatrixR ':rotationMa
 
 #Saving Stereo parameters
 print('Saving stereo parameters...')
-pickle.dump(StereoParams, open(dir_stereo_parameter+'\\' + 'StereoParams.p', 'wb') )
+pickle.dump(StereoParams, open(dir_calib_parameter+'\\' + 'StereoParams.p', 'wb') )
 print('Done.\n')
 
 #Incorrect undistortion using projection and optimal matrix 
