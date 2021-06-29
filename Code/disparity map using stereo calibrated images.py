@@ -22,6 +22,7 @@ dir_compare_frame_pairs = rootDir+'\Output\Compare_rectified_frame_pairs'
 dir_rectified_L = rootDir+'\Output\Rectified_frames\L'
 dir_rectified_R = rootDir+'\Output\Rectified_frames\R'
 dir_disparity = rootDir+'\Output\Rectified_frames\Disparity'
+dir_stereo_parameter = rootDir+'\Parameters'
 
 
 #Setting frame resolution.
@@ -192,6 +193,13 @@ print(validPixROI1)
 print('validPixROI2 = ')
 print(validPixROI2)
 
+StereoParams = {'rotationMatrixL':rotationMatrixL, 'rotationMatrixR ':rotationMatrixR , 'projectionMatrixL':projectionMatrixL, 'projectionMatrixR':projectionMatrixR, 'disp2depthMappingMatrix':disp2depthMappingMatrix, 'validPixROI1':validPixROI1, 'validPixROI2':validPixROI2}
+
+#Saving Stereo parameters
+print('Saving stereo parameters...')
+pickle.dump(StereoParams, open(dir_stereo_parameter+'\\' + 'StereoParams.p', 'wb') )
+print('Done.\n')
+
 #Incorrect undistortion using projection and optimal matrix 
 #mapxL, mapyL = cv2.initUndistortRectifyMap(mtxL, distL, rotationMatrixL, projectionMatrixL, (widthPixel,heightPixel), cv2.CV_32FC1)
 #mapxR, mapyR = cv2.initUndistortRectifyMap(mtxR, distR, rotationMatrixR, projectionMatrixR, (widthPixel,heightPixel), cv2.CV_32FC1)
@@ -199,8 +207,6 @@ print(validPixROI2)
 #Correct undistortion using old and new camera intrinsic matrix, rotion matrix and distortion cofficient
 mapxL, mapyL = cv2.initUndistortRectifyMap(old_mtxL, distL, rotationMatrixL, mtxL, (widthPixel,heightPixel), cv2.CV_32FC1)
 mapxR, mapyR = cv2.initUndistortRectifyMap(old_mtxR, distR, rotationMatrixR, mtxR, (widthPixel,heightPixel), cv2.CV_32FC1)
-
-
 
 for i in range(len(imagesL)):
     print('i = {}'.format(i))
