@@ -31,9 +31,9 @@ The Design Piepline is as follows:
 * Normalize the dispaity map between the range of 0-255.
 ### Disparity Map
 ![Disparity Map](Output/Rectified_frames/Disparity/frame111_l_disparity.jpg?raw=true)
-
-
-
+* Generate the 3D reconstructed image (Point Cloud file) using the calibrated stereo image pairs and 
+### 3D Reconstructed Image
+![3D Reconstructed Image](https://drive.google.com/uc?export=view&id=1RDOZDPLox7sH_LDQ5aNdYFRs0ziz9bwL)
 
 
  
