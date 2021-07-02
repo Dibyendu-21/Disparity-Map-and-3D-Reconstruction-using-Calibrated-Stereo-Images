@@ -14,7 +14,7 @@ The Design Piepline is as follows:
 ![Detected corners](Calib/frame111_corners.jpg?raw=true)
 * Calibrate the left and right camera and get the distortion cofficient, camera matrix, translation and rotaional matrix for both the cameras.
 * Find the optimal camera matrix (new camera) based on alpha free scaling parameter for both the cameras.
-* Rectify the stereo camera pair using stereoCalibrate() and get the rotationMatrix and translationVector for the stereo camera. 
+* Calibrate the stereo camera pair using stereoCalibrate() and get the rotationMatrix and translationVector for the stereo camera. 
 * Compute the rotation matrices for each camera based on free scaling parameter that brings both image along the same plane using stereoRectify() and
   get diparity to depth matrix which is used in point cloud generation.
 * undistort the left and right stereo images using old and new camera intrinsic matrices, rotation matrices found in earlier step
